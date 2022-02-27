@@ -9,6 +9,13 @@ import java.util.Map;
 @Repository
 public class TodoRepository {
 
+    public TodoRepository () {
+        todos.put("001", new Todo("01","Einkaufen"));
+        todos.put("002", new Todo("02", "Fische füttern"));
+        todos.put("003", new Todo("03", "Katze suchen"));
+        todos.put("005", new Todo("05", "neue Fische kaufen"));
+    }
+
     private Map<String, Todo> todos = new HashMap<>();
 
     public void save(Todo todo) {

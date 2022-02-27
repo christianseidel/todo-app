@@ -9,12 +9,13 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Todo {
 
-    private String id = UUID.randomUUID().toString();
+    private String id;  // = UUID.randomUUID().toString();
     private String task = "";
     private String description = "";
     private TodoStatus status = TodoStatus.Open;
 
-    public Todo(String task) {
+    public Todo(String id, String task) {
+        this.id = id;
         this.task = task;
     }
     

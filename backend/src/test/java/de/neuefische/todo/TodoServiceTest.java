@@ -19,7 +19,7 @@ public class TodoServiceTest {
         TodoRepository repo = Mockito.mock(TodoRepository.class);
         TodoService todoService = new TodoService(repo);
 
-        todoService.createTodo(todo1);
+        todoService.createTodo("00t", todo1);
 
         Mockito.verify(repo).save(todo1);
     }

@@ -19,7 +19,7 @@ public class TodoControllerIT {
     @Test
     void integrationTest() {
         // Erstes TodoItem erstellen
-        Todo todo1 = new Todo("Tests schreiben");
+        Todo todo1 = new Todo("005", "Tests schreiben");
 
         ResponseEntity<Todo[]> response1 = restTemplate.postForEntity("/todos", todo1, Todo[].class);
 
@@ -27,7 +27,7 @@ public class TodoControllerIT {
         Assertions.assertThat(response1.getBody()).containsExactlyInAnyOrder(todo1);
 
         // Zweites TodoItem erstellen
-        Todo todo2 = new Todo("TypeScript lernen");
+        Todo todo2 = new Todo("006", "TypeScript lernen");
 
         ResponseEntity<Todo[]> response2 = restTemplate.postForEntity("/todos", todo2, Todo[].class);
 

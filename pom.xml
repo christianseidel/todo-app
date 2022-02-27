@@ -8,7 +8,7 @@
 		<version>2.6.2</version>
 		<relativePath/>
 	</parent>
-	<groupId>com.github.gossie</groupId>
+	<groupId>com.github.christianseidel</groupId>
 	<artifactId>todo-app-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>todo-app-parent</name>

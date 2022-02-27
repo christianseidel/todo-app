@@ -8,6 +8,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping("/todos")
+@CrossOrigin
 @RequiredArgsConstructor
 public class TodoController {
 
@@ -15,8 +16,8 @@ public class TodoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Collection<Todo> createTodo(@RequestBody Todo todo) {
-        todoService.createTodo(todo);
+    public Collection<Todo> createTodo(@RequestBody String id, Todo todo) {
+        todoService.createTodo(id, todo);
         return todoService.getTodos();
     }
 
