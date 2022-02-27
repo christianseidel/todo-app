@@ -22,18 +22,32 @@ export default function Planer() {
                 {list.map(() => <TodoItem task={}}
     */
 
-
     const [list, setList] = useState([] as Array<Todo>);
+    const [contentInput, setContentInput] = useState('');
+    const requestBody = {"content": contentInput};
+
     const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage
 
-
+    // useEffect generiert den Standard, wie ich ihn beim Öffnen der Seite vorfinde.
     useEffect(() => {
         fetch (`http://localhost:8080/todos`)
             .then(response => response.json())
             .then((responseBody: Array<Todo>) => {setList(responseBody)})
+    }, ['']);
 
-    }, []);
 
+    // erstellt ein neues TodoItem
+    const addItem = () => {
+        fetch('http://localhost:8080/todos', {
+            method: "POST",
+            body: JSON.stringify(requestBody),
+            headers: {
+                "Content-Type" : "application/json"
+            }
+        })
+
+
+    }
 
     return (
         <div>
@@ -54,7 +68,15 @@ export default function Planer() {
 
                 </div>
                 <div className={'container-child-right'}>
-                       <p>hier fehlt noch der Text...</p>
+                    <div>
+                        <input  id={'input-field'} type={"text"} placeholder={"deine neue Aufgabe..."} value={contentInput} onChange={value => setContentInput(value.target.value)}/>
+                    </div>
+                    <div>
+                        <button id={'create-button'} type="submit" onClick={addItem}>anlegen</button>
+                    </div>
+                    <p>{contentInput}</p>
+
+
                 </div>
             </div>
 

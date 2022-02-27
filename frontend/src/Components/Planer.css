@@ -27,17 +27,17 @@ body {
     align-items: center;
     justify-content: flex-start;
     background-color: #f3ba9f;
-    border: solid green;
+    border: 3px solid green;
 
 }
 
 .container-child-right {
     width: 40%;
+    height: 44px;
     display: flex;
-    align-items: center;
     justify-content: flex-start;
     background-color: #f3ba9f;
-    border: solid green;
+    border: 1px solid green;
 
 }
 
@@ -57,4 +57,15 @@ p {
     margin-left: 12px;
     border: 1px dotted;
 
+}
+
+#input-field {
+    background-color: lightsteelblue;
+    font-size: larger;
+    border: 1px solid darkcyan;
+}
+
+#create-button {
+    display: block;
+    font-size: large;
 }
