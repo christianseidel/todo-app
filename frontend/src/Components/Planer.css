@@ -3,7 +3,6 @@ body {
 }
 
 .head-line {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +16,6 @@ body {
     align-items: center;
     justify-content: center;
     border: solid green;
-
 }
 
 .container-child-left {
@@ -28,17 +26,16 @@ body {
     justify-content: flex-start;
     background-color: #f3ba9f;
     border: 3px solid green;
-
 }
 
 .container-child-right {
     width: 40%;
     height: 44px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     background-color: #f3ba9f;
     border: 1px solid green;
-
 }
 
 h2 {
@@ -56,13 +53,21 @@ p {
     justify-content: flex-start;
     margin-left: 12px;
     border: 1px dotted;
-
 }
 
-#input-field {
+.input-field-task {
     background-color: lightsteelblue;
     font-size: larger;
-    border: 1px solid darkcyan;
+    border: 1px solid black;
+}
+
+.input-field-description {
+    background-color: #cedef5;
+    font-size: larger;
+    border: 1px solid black;
+}
+
+.input-field-container {
 }
 
 #create-button {

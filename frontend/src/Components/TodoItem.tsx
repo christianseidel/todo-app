@@ -7,10 +7,8 @@ export interface Todo {
 }
 
 function TodoItem(props: Todo) {
-
     return(
-        <div className={'item'}>
-
+        <div>
         </div>
     )
 }
