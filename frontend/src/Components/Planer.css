@@ -1,4 +1,60 @@
+body {
+    background-color: #f3ba9f;
+}
 
-.head {
+.head-line {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkseagreen;
+    border: 6px solid green;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid green;
+
+}
+
+.container-child-left {
+    width: 60%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f3ba9f;
+    border: solid green;
+
+}
+
+.container-child-right {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f3ba9f;
+    border: solid green;
+
+}
+
+h2 {
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+p {
+    font-size: larger;
+}
+
+.task {
+    font-size: larger;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 12px;
+    border: 1px dotted;
 
 }

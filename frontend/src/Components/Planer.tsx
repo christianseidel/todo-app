@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 
 
 
-export default function Planer(props: Todo) {
+export default function Planer() {
 
     /* const [input, setInput] = useState(''); */
 
@@ -24,6 +24,7 @@ export default function Planer(props: Todo) {
 
 
     const [list, setList] = useState([] as Array<Todo>);
+    const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage
 
 
     useEffect(() => {
@@ -33,25 +34,29 @@ export default function Planer(props: Todo) {
 
     }, []);
 
-    let a : Array<number> = [12, 13, 14];
 
     return (
         <div>
-            {/*list.map(todoList => <div>{todoList} </div>)*/}
-            <div className={'head'}>
-                <h1>To-Do-List</h1>
+            <div className={'head-line'}>
+                <h1> {user}'s To-Do-List</h1>
             </div>
 
-            <div className={'list'}>
-                <div>
-                   Todo: {props.task}
+            <div className={'container'}>
+                <div className={'container-child-left'}>
+                    <div>
+                        <h2>Deine Aufgaben</h2>
+                        {list.map((item) =>
+                            <div className={'task'}>{item.task} &nbsp; &nbsp; &nbsp; &nbsp; {item.status}</div>)}
 
 
-                    {a}
+
+                    </div>
+
                 </div>
-
+                <div className={'container-child-right'}>
+                       <p>hier fehlt noch der Text...</p>
+                </div>
             </div>
-
 
 
         </div>

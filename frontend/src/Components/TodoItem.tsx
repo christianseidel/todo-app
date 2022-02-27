@@ -1,18 +1,23 @@
 
 export interface Todo {
     id?: string;
-    task?: string;
+    task: string;
     description?: string;
-    status?: string;
+    status: string;
 }
 
 function TodoItem(props: Todo) {
 
+    let a = 12;
 
     return(
         <div className={'item'}>
-            Todo: {props.task}
-            {props.status}
+
+            {a}
+            {/*{props.status}*/}
+
+            Aufgabe: {props.task}   {/* wird nicht angezeigt...*/};
+
         </div>
     )
 }
