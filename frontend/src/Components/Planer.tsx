@@ -1,6 +1,7 @@
 import './Planer.css'
 import TodoItem, {Todo} from "./TodoItem";
 import {useEffect, useState} from "react";
+import todoItem from "./TodoItem";
 
 
 
@@ -23,28 +24,37 @@ export default function Planer() {
     */
 
     const [list, setList] = useState([] as Array<Todo>);
-    const [contentInput, setContentInput] = useState('');
-    const requestBody = {"content": contentInput};
+    const [task, setTask] = useState('');
+    // const requestBody = {333:number};
 
     const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage
 
     // useEffect generiert den Standard, wie ich ihn beim Öffnen der Seite vorfinde.
     useEffect(() => {
+        getAllTasks ()
+    }, []);
+
+    const getAllTasks = () => {
         fetch (`http://localhost:8080/todos`)
             .then(response => response.json())
             .then((responseBody: Array<Todo>) => {setList(responseBody)})
-    }, ['']);
+    }
 
 
     // erstellt ein neues TodoItem
-    const addItem = () => {
+    const addTask = () => {
         fetch('http://localhost:8080/todos', {
             method: "POST",
-            body: JSON.stringify(requestBody),
+            body: JSON.stringify({id:"008", task: "Aufräumen"}),
             headers: {
                 "Content-Type" : "application/json"
             }
         })
+            .then (() => getAllTasks())
+            .then(() => {
+            /* eingabefeld leeren */
+
+            })
 
 
     }
@@ -69,12 +79,12 @@ export default function Planer() {
                 </div>
                 <div className={'container-child-right'}>
                     <div>
-                        <input  id={'input-field'} type={"text"} placeholder={"deine neue Aufgabe..."} value={contentInput} onChange={value => setContentInput(value.target.value)}/>
+                        <input  id={'input-field'} type={"text"} placeholder={"deine neue Aufgabe..."} value={task} onChange={input => setTask(input.target.value) }/>
                     </div>
                     <div>
-                        <button id={'create-button'} type="submit" onClick={addItem}>anlegen</button>
+                        <button id={'create-button'} type="submit" onClick={addTask}>anlegen</button>
                     </div>
-                    <p>{contentInput}</p>
+                    <p>{task}</p>
 
 
                 </div>

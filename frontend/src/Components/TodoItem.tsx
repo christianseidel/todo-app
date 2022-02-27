@@ -8,15 +8,8 @@ export interface Todo {
 
 function TodoItem(props: Todo) {
 
-    let a = 12;
-
     return(
         <div className={'item'}>
-
-            {a}
-            {/*{props.status}*/}
-
-            Aufgabe: {props.task}   {/* wird nicht angezeigt...*/};
 
         </div>
     )
