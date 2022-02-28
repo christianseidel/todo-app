@@ -1,5 +1,5 @@
 import './Planer.css'
-import {Todo} from "./TodoItem";
+import {Todo} from "./model";
 import {useEffect, useState} from "react";
 
 
