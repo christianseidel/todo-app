@@ -1,4 +1,12 @@
 
 .item {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid red;
+}
 
+.child {
+    border: 1px solid blue;
 }

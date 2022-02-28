@@ -1,11 +1,11 @@
-import Planer from './Components/Planer';
+import TodoList from './Components/TodoList';
 
 
 function App() {
 
     return (
         <div>
-            <Planer />
+            <TodoList />
         </div>
     );
 }
