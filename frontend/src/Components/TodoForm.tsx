@@ -18,7 +18,7 @@ export default function TodoForm(props: TodoFormProps) {
             setTask(errorMessage);
             setDescription(' ');
         } else {
-            fetch('http://localhost:8080/todos', {
+            fetch(`${process.env.REACT_APP_BASE_URL}/todos`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

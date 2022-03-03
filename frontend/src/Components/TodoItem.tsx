@@ -10,7 +10,7 @@ interface TodoItemProps {
 function TodoItem(props: TodoItemProps) {
 
     function deleteTask() {
-        fetch(`http://localhost:8080/todos/${props.todo.id}`, {
+        fetch(`${process.env.REACT_APP_BASE_URL}/todos/${props.todo.id}`, {
             method: 'DELETE'
         })
         .then(() => props.onTodoDeletion ());
