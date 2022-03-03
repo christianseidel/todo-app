@@ -10,7 +10,7 @@ export default function TodoList() {
 
     const [list, setList] = useState([] as Array<Todo>);
     const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage - user erscheint in der Titelzeile
-    const STORAGE_KEY = 'myNumber_Key';
+    const STORAGE_KEY = 'myNumber_Key';  // 3 Komponenten für Local Storage Feautre
     const [myNumber, setMyNumber] = useState(localStorage.getItem(STORAGE_KEY) ?? '1');
     const result : string = `${parseInt(myNumber) * parseInt(myNumber)}`;
 
