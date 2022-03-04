@@ -1,12 +1,18 @@
 
+p {
+    font-size: larger;
+}
+
 .item {
     width: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    border: 1px solid red;
+    /* border: 1px solid black;*/
 }
 
 .child {
-    border: 1px solid blue;
+    margin-left: 12pt;
+    /* border: 1px solid black; */
 }
+

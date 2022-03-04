@@ -1,16 +1,33 @@
 import './TodoList.css'
+
 import {Todo} from './model';
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 interface TodoFormProps {
     onTodoCreation: (todos: Array<Todo>) => void;
 }
 
+// TodoForm serves to add a new T0do Item
 export default function TodoForm(props: TodoFormProps) {
 
-    const [task, setTask] = useState('');
-    const [description, setDescription] = useState('');
+    // Safe new t0do in Local Storage:
+    const STORAGE_KEY_1 = 'myTask';
+    const STORAGE_KEY_2 = 'myDescription';
+
+    const [task, setTask] = useState(localStorage.getItem(STORAGE_KEY_1) ?? '');
+    const [description, setDescription] = useState(localStorage.getItem(STORAGE_KEY_2) ?? '');
+
     const errorMessage : string = '¡noch keine Aufgabe erstellt!';      //erscheint, wenn eine Aufgabe ohne Eingabe erstellt wird
+
+
+    useEffect(() => {
+        localStorage.setItem(STORAGE_KEY_1, task);
+    }, [task]);
+
+    useEffect(() => {
+        localStorage.setItem(STORAGE_KEY_2, description);
+    }, [description]);
+
 
     // erstellt ein neues TodoItem
     const addTask = () => {
@@ -34,6 +51,8 @@ export default function TodoForm(props: TodoFormProps) {
             setDescription('');
         }
     }
+
+
 
     return (
         <div>

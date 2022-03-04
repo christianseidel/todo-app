@@ -4,3 +4,8 @@ export interface Todo {
     description?: string;
     status: string;
 }
+
+export enum Status {
+    Open = 'Open',
+    Done = 'Done'
+}

@@ -2,10 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './i18n';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ItemDetail from "./Components/ItemDetail"
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />}>
+                    <Route path="ItemDetail" element={<ItemDetail />} />
+
+
+                </Route>
+            </Routes>
+        </BrowserRouter>
     </React.StrictMode>,
   document.getElementById('root')
 );

@@ -75,3 +75,9 @@ p {
     display: block;
     font-size: large;
 }
+
+#delete-button {
+    display: block;
+    background-color: #f3ba9f;
+    margin-left: 12pt;
+}
