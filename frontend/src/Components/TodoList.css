@@ -16,14 +16,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid red;
 }
 #head-line-right-side {
     width: 5%;
     color: white;
     position: relative;
     top: 0px;
-    border: 1px solid red;
+    background-color: darkseagreen;
 }
 
 .container {
