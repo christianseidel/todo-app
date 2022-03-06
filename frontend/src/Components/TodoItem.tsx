@@ -1,5 +1,4 @@
 import './TodoItem.css';
-
 import {Status, Todo} from "./model";
 import {useEffect, useState} from "react";
 
@@ -32,18 +31,22 @@ function TodoItem(props: TodoItemProps) {
                 status: newStatus
             })
         })
-            .then(() => {})
-            .then(() => console.log('soweit okay'));
+            .then(response => response.json())
+            .then((todosFromBackend: Array<Todo>) => {
+            props.onTodoChange(todosFromBackend)
+        });
     }
 
     return (
         <div>
             <div className={'item'}>
-
-                <div className={'child'}>{props.todo.task}</div>
-                <div className={'child'}> &ndash; {props.todo.description} &ndash; </div>
-                <div className={'child'}><div onClick={() => changeState()}> Status: {props.todo.status}</div></div>
-                <div className={'child'}><button id={'delete-button'} type="submit" onClick={deleteTask}>&#10006;</button></div>
+                <div className={'item-title'}>
+                    <div>{props.todo.task}</div>
+                    <div id={props.todo.status === Status.Done ? 'statusClosed': 'statusOpen'} onClick={() => changeState()}>{props.todo.status}</div>
+                </div>
+                <div className={'item-description'}>{props.todo.description}
+                    <div><button id={'delete-button'} type="submit" onClick={deleteTask}>&#10006;</button></div>
+                </div>
             </div>
         </div>
     )

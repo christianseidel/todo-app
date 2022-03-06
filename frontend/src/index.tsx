@@ -8,15 +8,18 @@ import ItemDetail from "./Components/ItemDetail"
 
 ReactDOM.render(
     <React.StrictMode>
+
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />}>
                     <Route path="ItemDetail" element={<ItemDetail />} />
 
 
+
                 </Route>
             </Routes>
         </BrowserRouter>
+
     </React.StrictMode>,
   document.getElementById('root')
 );

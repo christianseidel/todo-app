@@ -57,11 +57,11 @@ export default function TodoForm(props: TodoFormProps) {
     return (
         <div>
             <div className={'input-field-container'}>
-                <input  className={'input-field-task'} type={"text"} placeholder={"Deine neue Aufgabe..."} value={task} onChange={input => setTask(input.target.value) }/>
+                <input  className={'input-field-task'} type={"text"} placeholder={"neue Aufgabe ..."} value={task} onChange={input => setTask(input.target.value) }/>
             </div>
 
             <div>
-                <input  className={'input-field-description'} type={"text"} placeholder={"...und ihre Beschreibung"} value={description} onChange={input => setDescription(input.target.value) }/>
+                <input  className={'input-field-description'} type={"text"} placeholder={"... Beschreibung"} value={description} onChange={input => setDescription(input.target.value) }/>
             </div>
 
             <div>

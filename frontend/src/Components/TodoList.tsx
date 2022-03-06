@@ -6,6 +6,7 @@ import TodoForm from "./TodoForm";
 
 import {renderIntoDocument} from "react-dom/test-utils";
 import {useTranslation} from "react-i18next";
+import {t} from "i18next";
 
 export function Imprint () {
     const {t} = useTranslation();
@@ -35,17 +36,20 @@ export default function TodoList() {
     return (
         <div>
             <div className={'head-line'}>
-                <h1> {user}'s To-Do-Liste</h1>
+                <span id={'head-line-center-piece'}><h1> {user}{t('title')}</h1></span>
+
+                <span id={'head-line-right-side'}><img src={'globe.jpg'} alt={'planet a'} /></span>
             </div>
 
             <div className={'container'}>
                 <div className={'child-container-left'}>    {/* hier steht die Titelzeile der Ausgabe*/}
-
-                    <h2>Deine To-Dos</h2>
-                    {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList} onTodoDeletion={getAllTasks}/>)}  {/* das todo an dieser Stelle ist ein Array aus Todo-items */}
+                    <h2 className={'child-container-title'}>Meine To-Dos</h2>
+                    <div className={'child-container-body'}>
+                    {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList} onTodoDeletion={getAllTasks}/>)}  {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
+                    </div>
                 </div>
 
-                <div className={'child-container-right'}>     {/* hier steht die Titelzeile der Ausgabe*/}
+                <div className={'child-container-right'}>
                     <TodoForm onTodoCreation={setList}/>
                 </div>
             </div>

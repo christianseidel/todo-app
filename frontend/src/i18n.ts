@@ -20,7 +20,7 @@ i18n
                 'subdomain'
             ]
         },
-        fallbackLng: 'en',
+        fallbackLng: 'de',
         debug: true,
 
         interpolation: {

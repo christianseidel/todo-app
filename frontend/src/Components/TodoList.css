@@ -7,7 +7,23 @@ body {
     align-items: center;
     justify-content: center;
     background-color: darkseagreen;
+    color: green;
     border: 6px solid green;
+}
+
+#head-line-center-piece {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+}
+#head-line-right-side {
+    width: 5%;
+    color: white;
+    position: relative;
+    top: 0px;
+    border: 1px solid red;
 }
 
 .container {
@@ -21,22 +37,32 @@ body {
 .child-container-left {
     width: 60%;
     height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: block;
     background-color: #f3ba9f;
     border: 3px solid green;
+    padding: 12pt;
+}
+
+.child-container-title {
+    margin-bottom: 8pt;
+}
+
+.child-container-body {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .child-container-right {
     width: 40%;
-    height: 44px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     background-color: #f3ba9f;
     border: 1px solid green;
+    padding: 12pt;
 }
 
 h2 {
@@ -52,20 +78,22 @@ p {
     font-size: larger;
     display: flex;
     justify-content: flex-start;
-    margin-left: 12px;
     border: 1px dotted;
 }
 
 .input-field-task {
-    background-color: lightsteelblue;
+    background-color: #ffd7bf;
     font-size: larger;
+    text-align: center;
     border: 1px solid black;
 }
 
 .input-field-description {
-    background-color: #cedef5;
+    background-color: #ffd7bf;
     font-size: larger;
+    text-align: center;
     border: 1px solid black;
+
 }
 
 .input-field-container {
