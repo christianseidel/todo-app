@@ -24,11 +24,6 @@ export default function TodoForm(props: TodoFormProps) {
 
     const errorMessage : string = '¡' + t('error-message') + '!';    //erscheint, wenn eine Aufgabe ohne Eingabe erstellt wird
 
-
-    useEffect(() => {
-        localStorage.setItem(STORAGE_KEY_1, task);
-    }, [task]);
-
     useEffect(() => {
         localStorage.setItem(STORAGE_KEY_2, description);
     }, [description]);

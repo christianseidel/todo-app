@@ -1,9 +1,8 @@
 import './TodoList.css'
-import {Status, Todo} from "./model";
+import {Todo} from "./model";
 import {useEffect, useState} from "react";
 import TodoItem from "./TodoItem";
 import TodoForm from "./TodoForm";
-import {renderIntoDocument} from "react-dom/test-utils";
 import {useTranslation} from "react-i18next";
 import i18n from "i18next";
 import deFlag from '../img/de.png'
@@ -16,36 +15,33 @@ export default function TodoList() {
     const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage - user erscheint in der Titelzeile
     const {t} = useTranslation();
 
-
-    // useEffect generiert den Standard, wie ich ihn beim Öffnen der Seite vorfinde.
     useEffect(() => {
-        getAllTasks ()
+        getAllTasks()
     }, []);
 
     const getAllTasks = () => {
-        fetch (`${process.env.REACT_APP_BASE_URL}/todos`)
+        fetch(`${process.env.REACT_APP_BASE_URL}/todos`)
             .then(response => response.json())
-            .then((responseBody: Array<Todo>) => {setList(responseBody)})
+            .then((responseBody: Array<Todo>) => {
+                setList(responseBody)
+            })
     }
+    // const [language, setLanguage] = useState(localStorage.getItem('i18nextLng') ?? 'de');
+    // let language: string;
+    // const [languageIcon, setLanguageIcon] = useState(localStorage.getItem('langIcon') ?? );
 
-    // useEffect(() => {
-//        if (localStorage.getItem('i18nextLng') === 'en') {
+    let language: string = localStorage.getItem('i18nextLng') ?? '';
 
-  //      }
-
-
-    let language:string = localStorage.getItem('i18nextLng') ?? '';
-    let languageIcon:string = enFlag;
+    let languageIcon;
 
     function setLanguage() {
         if (localStorage.getItem('i18nextLng') === 'en') {
             i18n.changeLanguage('de');
-            languageIcon = enFlag}                // Dieser Wert wird nicht an Zeile 46 übergeben, sondern die Funktion fällt zurück auf Zeile 29
-        else {                                      // und ich weiß nicht wieso?!
+            languageIcon = enFlag;
+        } else {
             i18n.changeLanguage('en');
-            language = deFlag};
-        // eigentlich sollte ich die Eingabefelder an dieser Stelle ebenfalls auf '' setzen.
-        return languageIcon;
+            languageIcon = deFlag;
+        }
     }
 
     return (
@@ -54,15 +50,13 @@ export default function TodoList() {
                 <span id={'head-line-center-piece'}><h1> {user}{t('title')}</h1></span>
                 <div id={'head-line-right-side'}><img src={languageIcon} width={'32px'} height={'32px'} alt={'set to English / Deutsch auswählen'} onClick={() => setLanguage()} /></div>
             </div>
-
             <div className={'container'}>
                 <div className={'child-container-left'}>    {/* hier steht die Titelzeile der Ausgabe*/}
                     <h2 className={'child-container-title'}>{t('second-title')}</h2>
                     <div className={'child-container-body'}>
-                    {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList} onTodoDeletion={getAllTasks}/>)}  {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
+                        {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList} onTodoDeletion={getAllTasks}/>)}  {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
                     </div>
                 </div>
-
                 <div className={'child-container-right'}>
                     <TodoForm onTodoCreation={setList}/>
                 </div>
@@ -70,4 +64,3 @@ export default function TodoList() {
         </div>
     )
 }
-
