@@ -6,6 +6,8 @@ import TodoForm from "./TodoForm";
 import {renderIntoDocument} from "react-dom/test-utils";
 import {useTranslation} from "react-i18next";
 import i18n from "i18next";
+import deFlag from '../img/de.png'
+import enFlag from '../img/en.png'
 
 
 export default function TodoList() {
@@ -26,16 +28,22 @@ export default function TodoList() {
             .then((responseBody: Array<Todo>) => {setList(responseBody)})
     }
 
+    // useEffect(() => {
+//        if (localStorage.getItem('i18nextLng') === 'en') {
+
+  //      }
+
+
     let language:string = localStorage.getItem('i18nextLng') ?? '';
-    let languageIcon:string = language + '.png';
+    let languageIcon:string = enFlag;
 
     function setLanguage() {
         if (localStorage.getItem('i18nextLng') === 'en') {
             i18n.changeLanguage('de');
-            languageIcon ='en.png'}                // Dieser Wert wird nicht an Zeile 46 übergeben, sondern die Funktion fällt zurück auf Zeile 29
+            languageIcon = enFlag}                // Dieser Wert wird nicht an Zeile 46 übergeben, sondern die Funktion fällt zurück auf Zeile 29
         else {                                      // und ich weiß nicht wieso?!
             i18n.changeLanguage('en');
-            language = 'de.png'};
+            language = deFlag};
         // eigentlich sollte ich die Eingabefelder an dieser Stelle ebenfalls auf '' setzen.
         return languageIcon;
     }
