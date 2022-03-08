@@ -12,8 +12,9 @@ import enFlag from '../img/en.png'
 export default function TodoList() {
 
     const [list, setList] = useState([] as Array<Todo>);
-    const user = "Christian";       // in Vorbereitung auf eine später einzurichtende User-Abfrage - user erscheint in der Titelzeile
     const {t} = useTranslation();
+    const user = "Christian";
+
 
     useEffect(() => {
         getAllTasks()
@@ -26,21 +27,12 @@ export default function TodoList() {
                 setList(responseBody)
             })
     }
-    // const [language, setLanguage] = useState(localStorage.getItem('i18nextLng') ?? 'de');
-    // let language: string;
-    // const [languageIcon, setLanguageIcon] = useState(localStorage.getItem('langIcon') ?? );
-
-    let language: string = localStorage.getItem('i18nextLng') ?? '';
-
-    let languageIcon;
 
     function setLanguage() {
         if (localStorage.getItem('i18nextLng') === 'en') {
             i18n.changeLanguage('de');
-            languageIcon = enFlag;
         } else {
             i18n.changeLanguage('en');
-            languageIcon = deFlag;
         }
     }
 
@@ -48,13 +40,16 @@ export default function TodoList() {
         <div>
             <div className={'head-line'}>
                 <span id={'head-line-center-piece'}><h1> {user}{t('title')}</h1></span>
-                <div id={'head-line-right-side'}><img src={languageIcon} width={'32px'} height={'32px'} alt={'set to English / Deutsch auswählen'} onClick={() => setLanguage()} /></div>
+                <div id={'head-line-right-side'}><img
+                    src={(localStorage.getItem('i18nextLng') === 'en') ? deFlag : enFlag} width={'32px'} height={'32px'}
+                    alt={'set to English / Deutsch auswählen'} onClick={() => setLanguage()}/></div>
             </div>
             <div className={'container'}>
-                <div className={'child-container-left'}>    {/* hier steht die Titelzeile der Ausgabe*/}
+                <div className={'child-container-left'}>
                     <h2 className={'child-container-title'}>{t('second-title')}</h2>
                     <div className={'child-container-body'}>
-                        {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList} onTodoDeletion={getAllTasks}/>)}  {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
+                        {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList}
+                                                    onTodoDeletion={getAllTasks}/>)} {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
                     </div>
                 </div>
                 <div className={'child-container-right'}>
