@@ -5,6 +5,7 @@ import org.mockito.Mockito;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -52,7 +53,7 @@ public class TodoServiceTest {
         todo1.setStatus(TodoStatus.Open);
 
         TodoRepository repo = Mockito.mock(TodoRepository.class);
-        Mockito.when(repo.findById(todo1.getId())).thenReturn(todo1);
+        Mockito.when(repo.findById(todo1.getId())).thenReturn(Optional.of(todo1));
 
         TodoService todoService = new TodoService(repo);
 
@@ -63,14 +64,15 @@ public class TodoServiceTest {
 
     @Test
     void shouldDeleteTodo() {
-        String id = "4711";
+        Todo todo1 = new Todo();
+        todo1.setId("4711");
 
         TodoRepository repo = Mockito.mock(TodoRepository.class);
         TodoService todoService = new TodoService(repo);
 
-        todoService.deleteTodo(id);
+        todoService.deleteTodo(todo1.getId());
 
-        Mockito.verify(repo).delete(id);
+        Mockito.verify(repo).delete(todo1);
     }
 
     @Test
@@ -86,7 +88,7 @@ public class TodoServiceTest {
         savedTodo.setStatus(TodoStatus.Done);
 
         TodoRepository repo = Mockito.mock(TodoRepository.class);
-        Mockito.when(repo.findById("4711")).thenReturn(todo1);
+        Mockito.when(repo.findById("4711")).thenReturn(Optional.of(todo1));
 
         TodoService todoService = new TodoService(repo);
 

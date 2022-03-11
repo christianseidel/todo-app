@@ -2,14 +2,18 @@ package de.neuefische.todo;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
+@Document(collection = "todos")
 @Data
 @NoArgsConstructor
 public class Todo {
 
-    public String id = UUID.randomUUID().toString();
+@Id
+    private String id;
     public String task = "";
     public String description = "";
     public TodoStatus status = TodoStatus.Open;
