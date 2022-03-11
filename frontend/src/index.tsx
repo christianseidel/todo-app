@@ -1,11 +1,26 @@
-import React from 'react';
+import './i18n';
+import React, {Suspense} from "react";
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import ItemDetail from "./Components/ItemDetail"
+
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        <Suspense fallback={"Loading..."}>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<App />}>
+                        <Route path="ItemDetail" element={<ItemDetail />} />
+
+
+
+                    </Route>
+                </Routes>
+            </BrowserRouter>
+        </Suspense>
     </React.StrictMode>,
   document.getElementById('root')
 );

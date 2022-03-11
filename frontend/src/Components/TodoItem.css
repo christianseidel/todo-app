@@ -1,4 +1,39 @@
 
-.item {
+p {
+    font-size: larger;
+}
 
+.item {
+    width: auto;
+    min-width: 180pt;
+    display: block;
+    margin: 11pt;
+    padding: 6pt;
+    border: 3px solid green;
+    box-shadow: 4px +3px 4px darkgreen;
+}
+
+.item-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: larger;
+    margin-bottom: 10px;
+;
+}
+
+.item-description {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#statusOpen {
+    font-weight: bold;
+    color: green;
+}
+
+#statusClosed {
+    font-weight: bold;
+    color: red;
 }

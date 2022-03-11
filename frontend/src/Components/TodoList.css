@@ -1,0 +1,110 @@
+body {
+    background-color: #f3ba9f;
+}
+
+.head-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkseagreen;
+    color: green;
+    border: 6px solid green;
+}
+
+#head-line-center-piece {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#head-line-right-side {
+    width: 5%;
+    color: white;
+    position: relative;
+    top: 0px;
+    background-color: darkseagreen;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid green;
+}
+
+.child-container-left {
+    width: 60%;
+    height: auto;
+    display: block;
+    background-color: #f3ba9f;
+    border: 3px solid green;
+    padding: 12pt;
+}
+
+.child-container-title {
+    margin-bottom: 8pt;
+}
+
+.child-container-body {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.child-container-right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f3ba9f;
+    border: 1px solid green;
+    padding: 12pt;
+}
+
+h2 {
+    margin-bottom: 12px;
+    margin-left: 12px;
+}
+
+p {
+    font-size: larger;
+}
+
+.task {
+    font-size: larger;
+    display: flex;
+    justify-content: flex-start;
+    border: 1px dotted;
+}
+
+.input-field-task {
+    background-color: #ffd7bf;
+    font-size: larger;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.input-field-description {
+    background-color: #ffd7bf;
+    font-size: larger;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.input-field-container {
+}
+
+#create-button {
+    display: block;
+    font-size: large;
+}
+
+#delete-button {
+    display: block;
+    background-color: #f3ba9f;
+    margin-left: 12pt;
+}

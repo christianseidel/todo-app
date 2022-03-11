@@ -16,7 +16,7 @@ public class TodoController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Collection<Todo> createTodo(@RequestBody String id, Todo todo) {
+    public Collection<Todo> createTodo(String id, @RequestBody Todo todo) {
         todoService.createTodo(id, todo);
         return todoService.getTodos();
     }
