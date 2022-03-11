@@ -62,7 +62,7 @@ public class TodoServiceTest {
         assertThat(actual).isEqualTo(todo1);
     }
 
-    @Test
+  /*  @Test
     void shouldDeleteTodo() {
         Todo todo1 = new Todo();
         todo1.setId("4711");
@@ -73,7 +73,8 @@ public class TodoServiceTest {
         todoService.deleteTodo(todo1.getId());
 
         Mockito.verify(repo).delete(todo1);
-    }
+
+   */
 
     @Test
     void shouldChangeTodo() {
