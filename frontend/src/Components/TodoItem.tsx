@@ -1,6 +1,5 @@
 import './TodoItem.css';
 import {Status, Todo} from "./model";
-import {useEffect, useState} from "react";
 
 interface TodoItemProps {
     todo: Todo

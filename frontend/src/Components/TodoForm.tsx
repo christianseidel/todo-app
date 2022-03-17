@@ -3,7 +3,6 @@ import './TodoList.css'
 import {Todo} from './model';
 import {useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
-import TodoList from './TodoList'
 
 
 interface TodoFormProps {
@@ -31,7 +30,7 @@ export default function TodoForm(props: TodoFormProps) {
 
     // erstellt ein neues TodoItem
     const addTask = () => {
-        if (task == '' || task == errorMessage) {
+        if (task === '' || task === errorMessage) {
             setTask(errorMessage);
             setDescription(' ');
         } else {
