@@ -24,8 +24,7 @@ public class LoginController {
     @PostMapping  // login port
     public String login(@RequestBody LoginData loginData) {     // needs: username, password
         try {
-            Authentication auth = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
+            Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
             return jwtService.createToken(new HashMap<>(), loginData.getUsername());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "invalid username or password");

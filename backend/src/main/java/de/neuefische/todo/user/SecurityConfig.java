@@ -38,17 +38,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .mvcMatchers("/todos").authenticated()
-                .and()
-                .authorizeRequests()
                 .mvcMatchers("/api").authenticated()
-                .and()
-                .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()  // probably already covered previously
                 .antMatchers("/**").permitAll()
                 .and()
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
     }
 
     @Bean

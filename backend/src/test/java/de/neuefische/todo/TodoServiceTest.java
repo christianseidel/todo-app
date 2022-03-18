@@ -32,7 +32,7 @@ public class TodoServiceTest {
         todo1.setStatus(TodoStatus.Open);
 
         Todo todo2 = new Todo();
-        todo2.setTask("Putzen");
+        todo2.setTask("Einkaufen");
         todo2.setStatus(TodoStatus.Open);
 
         List<Todo> todoList = List.of(todo1, todo2);

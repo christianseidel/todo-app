@@ -16,11 +16,13 @@ public class Todo {
     private String id;
     public String task = "";
     public String description = "";
+    public String user = "";
     public TodoStatus status = TodoStatus.Open;
 
-    public Todo(String id, String task) {
+    public Todo(String id, String task, String user) {
         this.id = id;
         this.task = task;
+        this.user = user;
         }
     
 }
