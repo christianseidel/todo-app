@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 @Component
 @RequiredArgsConstructor
@@ -40,9 +41,12 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     private String getAuthToken(HttpServletRequest request){
-        return "whatever !!!!!!!!";           //// hier geht's weiter
+        String authorization = request.getHeader("Authorization");
+        if (authorization != null) {
+            return authorization.replace("Bearer", "").trim();
+        }
+        return null;
     }
-
 
     private void setSecurityContext(Claims claims) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(claims.getSubject(), "", List.of());

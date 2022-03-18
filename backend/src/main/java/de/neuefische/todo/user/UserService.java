@@ -16,6 +16,6 @@ public class UserService {
     }
 
     public Optional<UserDocument> findByName(String username) {
-        return userRepository.findByName(username);
+        return userRepository.findByUsername(username);
     }
 }
