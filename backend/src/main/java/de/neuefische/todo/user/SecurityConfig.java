@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .mvcMatchers("/todos").authenticated()
                 .mvcMatchers("/api").authenticated()
-                .antMatchers(HttpMethod.POST, "/login").permitAll()  // probably already covered previously
+                .antMatchers(HttpMethod.POST, "/api/login").permitAll()  // probably already covered previously
                 .antMatchers("/**").permitAll()
                 .and()
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)

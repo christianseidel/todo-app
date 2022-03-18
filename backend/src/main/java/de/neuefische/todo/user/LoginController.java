@@ -14,7 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/api/login")
 @RequiredArgsConstructor
 public class LoginController {
 
