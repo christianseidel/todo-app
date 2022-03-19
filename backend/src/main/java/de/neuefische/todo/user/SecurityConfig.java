@@ -37,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .mvcMatchers("/todos").authenticated()
+                .mvcMatchers("/todos").permitAll() // muss: authenticated()
                 .mvcMatchers("/api").authenticated()
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll()  // probably already covered previously
                 .antMatchers("/**").permitAll()
