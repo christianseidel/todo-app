@@ -41,7 +41,6 @@ export default function TodoList() {
         <div>
             <div className={'head-line'}>
                 <span id={'head-line-center-piece'}><h1> {user}{t('title')}</h1></span>
-                <Login />
                 <div id={'head-line-right-side'}><img
                     src={(localStorage.getItem('i18nextLng') === 'en') ? deFlag : enFlag} width={'32px'} height={'32px'}
                     alt={'set to English / Deutsch auswählen'} onClick={() => setLanguage()}/></div>

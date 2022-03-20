@@ -31,7 +31,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
 
         if(token != null && !token.isBlank()) {
             try {
-                Claims claims = jwtService.parseClaims(token);;
+                Claims claims = jwtService.parseClaims(token);
                 setSecurityContext(claims);
             } catch (Exception e) {
                 throw new ResponseStatusException(HttpStatus.FORBIDDEN, "invalid token");

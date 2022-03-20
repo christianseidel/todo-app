@@ -23,7 +23,6 @@ public class LoginController {
 
     @PostMapping  // login port
     public String login(@RequestBody LoginData loginData) {     // needs: username, password
-        System.out.println("drei");
         try {
             Authentication auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginData.getUsername(), loginData.getPassword()));
             return jwtService.createToken(new HashMap<>(), loginData.getUsername());

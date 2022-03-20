@@ -10,5 +10,6 @@
   "login-field-user": "User",
   "login-field-password": "Password",
   "button-login": "log in",
-  "button-clear-all": "clear all"
+  "button-clear-all": "clear all",
+  "msg-wrong-credentials": "Password or Username is not correct!"
 }

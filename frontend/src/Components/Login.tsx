@@ -6,18 +6,16 @@ function Login() {
 
     const {t} = useTranslation();
 
-    const [user, setUser] = useState(localStorage.getItem('userName') ?? '');
+    const [name, setName] = useState(localStorage.getItem('userName') ?? '');
     const [password, setPassword] = useState(localStorage.getItem('userPassword') ?? '');
+    const [errMsg, setErrMsg] = useState('')
+
 
     useEffect(() => {
-        localStorage.setItem('userName', user);
-    }, [user]);
+        localStorage.setItem('userName', name);
+    }, [name]);
 
-
-    ///
-    ///
-
-    function loginUser(user : string, password : string) {
+    function loginUser(user: string, password: string) {
         console.log("Anwender " + user + " hat das Passwort: " + password);
         fetch(`${process.env.REACT_APP_BASE_URL}/api/login`, {
             method: 'POST',
@@ -25,42 +23,48 @@ function Login() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                user: user,
+                username: user,
                 password: password
             })
         })
-            .then(response => response.json())
-            .then((userFromBackend: string) => setUser(userFromBackend));
-                console.log("user = " + user)
-        setUser('');
-    }
-    ///
-    ///
+            .then (response => {
+                if (!response.ok) {
+                    localStorage.setItem("user", "");
+                    localStorage.setItem("token", "");
+                    setErrMsg(t("msg-wrong-credentials"));
+                    throw new Error()
+                }
+                setErrMsg("");
+                return response.text();
+            })
+            .then((responseBody: string) => localStorage.setItem("token", responseBody))
+            .then(() => localStorage.setItem("user", user));
 
+        console.log("user = " + user);    // wieso gibt die Konsole das nicht aus?
+        setName('');
+        setPassword('');
+    }
 
     return (
         <div>
             <form>
                 <div>
-                    <input  type={"text"} placeholder={t("login-field-user")}
-                            value={user} onChange={input => setUser(input.target.value)}/>
+                    <input type={"text"} placeholder={t("login-field-user")}
+                           value={name} onChange={input => setName(input.target.value)}/>
                 </div>
                 <div>
-                    <input  type={"password"} placeholder={t("login-field-password")} value={password}
-                            onChange={input => setPassword(input.target.value)}/>
-                </div>
-
-                <div>
-                    <button type={"submit"} onClick={() => loginUser("franz", "franz")}>{t("button-login")}</button>
-                </div>
-
-                <div>
-
+                    <input type={"password"} placeholder={t("login-field-password")} value={password}
+                           onChange={input => setPassword(input.target.value)}/>
                 </div>
             </form>
+
             <div>
-                <button onClick={() => loginUser("susanne", "susanne")}>los!</button>
-                </div>
+                <button type={"submit"} onClick={() => loginUser(name, password)}>{t("button-login")}</button>
+            </div>
+
+            <p>
+                <b>{errMsg}</b>
+            </p>
         </div>
 
     )
