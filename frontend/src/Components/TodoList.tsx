@@ -7,6 +7,7 @@ import {useTranslation} from "react-i18next";
 import i18n from "i18next";
 import deFlag from '../img/de.png'
 import enFlag from '../img/en.png'
+import Login from "./Login";
 
 
 export default function TodoList() {
@@ -49,7 +50,7 @@ export default function TodoList() {
                     <h2 className={'child-container-title'}>{t('second-title')}</h2>
                     <div className={'child-container-body'}>
                         {list.map(item => <TodoItem key={item.id} todo={item} onTodoChange={setList}
-                                                    onTodoDeletion={getAllTasks}/>)} {/* Das T0D0 an dieser  Stelle ist ein Array aus T0D0-items */}
+                                                    onTodoDeletion={getAllTasks}/>)} {/* Das T0D0 an dieser Stelle ist ein Array aus T0D0-items */}
                     </div>
                 </div>
                 <div className={'child-container-right'}>

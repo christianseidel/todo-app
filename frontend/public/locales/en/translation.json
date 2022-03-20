@@ -1,9 +1,15 @@
 {
   "title": "'s To-Do List",
   "second-title": "My To-Dos",
-  "input-field-task" : "new To-Do ...",
-  "input-field-description" : "... description",
-  "button-new-task" : "Add Task",
-  "error-message" : "please enter a new task"
 
+  "input-field-task": "new To-Do ...",
+  "input-field-description": "... description",
+  "button-new-task": "Add Task",
+  "error-message": "please enter a new task",
+
+  "login-field-user": "User",
+  "login-field-password": "Password",
+  "button-login": "log in",
+  "button-clear-all": "clear all",
+  "msg-wrong-credentials": "Password or Username is not correct!"
 }

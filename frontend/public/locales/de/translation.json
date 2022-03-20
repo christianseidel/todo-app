@@ -1,8 +1,16 @@
 {
-  "title" : "s To-Do-Liste",
-  "second-title" : "Meine To-Dos",
-  "input-field-task" : "neue Aufgabe ...",
-  "input-field-description" : "... Beschreibung",
-  "button-new-task" : "Aufgabe anlegen",
-  "error-message" : "bitte trage eine Aufgabe ein"
+  "title": "s To-Do-Liste",
+  "second-title": "Meine To-Dos",
+
+  "input-field-task": "neue Aufgabe ...",
+  "input-field-description": "... Beschreibung",
+  "button-new-task": "Aufgabe anlegen",
+  "error-message": "Bitte trage eine Aufgabe ein",
+
+  "login-field-user": "Nutzer",
+  "login-field-password": "Passwort",
+  "button-login": "Einloggen",
+  "button-clear-all": "Alles löschen",
+  "msg-wrong-credentials": "Password oder Benutzername ist leider falsch!"
+
 }

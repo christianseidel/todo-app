@@ -26,18 +26,18 @@ public class TodoController {
         return todoService.getTodos();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/api/{id}")
     public Todo getTodo(@PathVariable String id) {
         return todoService.getTodo(id);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/api/{id}")
     public Collection<Todo> changeTodo(@PathVariable String id, @RequestBody Todo todo) {
         todoService.changeTodo(id, todo);
         return todoService.getTodos();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/api/{id}")
     public Collection<Todo> deleteTodo(@PathVariable String id) {
         todoService.deleteTodo(id);
         return todoService.getTodos();

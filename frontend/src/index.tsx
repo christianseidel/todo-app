@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ItemDetail from "./Components/ItemDetail"
+import Login from "./Components/Login";
 
 
 ReactDOM.render(
@@ -14,6 +15,7 @@ ReactDOM.render(
                 <Routes>
                     <Route path="/" element={<App />}>
                         <Route path="ItemDetail" element={<ItemDetail />} />
+                        <Route path="api/login" element={<Login />} />
 
 
 
