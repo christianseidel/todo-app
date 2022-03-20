@@ -14,6 +14,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -38,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .mvcMatchers("/todos").permitAll() // muss: authenticated()
-                .mvcMatchers("/api").authenticated()
+                .mvcMatchers("/api").permitAll() // muss: .authenticated()
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll()  // probably already covered previously
                 .antMatchers("/**").permitAll()
                 .and()

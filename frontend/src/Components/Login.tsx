@@ -1,37 +1,38 @@
-import {findAllByDisplayValue} from "@testing-library/react";
 import {useTranslation} from "react-i18next";
-import {useState} from "react";
-import {Status, Todo} from "./model";
-import {log} from "util";
+import {useEffect, useState} from "react";
 
 
 function Login() {
 
     const {t} = useTranslation();
 
-    const [user, setUser] = useState(localStorage.getItem("userName") ?? '');
-    const pwd : string ='';
-    const [password, setPassword] = useState('')
+    const [user, setUser] = useState(localStorage.getItem('userName') ?? '');
+    const [password, setPassword] = useState(localStorage.getItem('userPassword') ?? '');
+
+    useEffect(() => {
+        localStorage.setItem('userName', user);
+    }, [user]);
 
 
     ///
     ///
 
     function loginUser(user : string, password : string) {
-        console.log(user + " " + password);
-        fetch(`${process.env.REACT_APP_BASE_URL}/login`, {
+        console.log("Anwender " + user + " hat das Passwort: " + password);
+        fetch(`${process.env.REACT_APP_BASE_URL}/api/login`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                user, password
+                user: user,
+                password: password
             })
         })
             .then(response => response.json())
-            .then((todosFromBackend: Array<Todo>) => {
-                // props.onTodoChange(todosFromBackend)
-            });
+            .then((userFromBackend: string) => setUser(userFromBackend));
+                console.log("user = " + user)
+        setUser('');
     }
     ///
     ///
@@ -41,20 +42,25 @@ function Login() {
         <div>
             <form>
                 <div>
-                    <input  type={"text"} placeholder={t("login-field-user")} value={user} onChange={input => setUser(input.target.value)}/>
+                    <input  type={"text"} placeholder={t("login-field-user")}
+                            value={user} onChange={input => setUser(input.target.value)}/>
                 </div>
                 <div>
-                    <input  type={"text"} placeholder={t("login-field-password")} value={password} onChange={input => setPassword(input.target.value)}/>
+                    <input  type={"password"} placeholder={t("login-field-password")} value={password}
+                            onChange={input => setPassword(input.target.value)}/>
                 </div>
 
                 <div>
-                    <button type={"submit"} onClick={() => loginUser("hans", "franz")}>{t("button-login")}</button>
+                    <button type={"submit"} onClick={() => loginUser("franz", "franz")}>{t("button-login")}</button>
                 </div>
 
                 <div>
 
                 </div>
             </form>
+            <div>
+                <button onClick={() => loginUser("susanne", "susanne")}>los!</button>
+                </div>
         </div>
 
     )

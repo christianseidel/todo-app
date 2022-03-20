@@ -9,6 +9,6 @@
 
   "login-field-user": "User",
   "login-field-password": "Password",
-  "button-login": "log in"
-
+  "button-login": "log in",
+  "button-clear-all": "clear all"
 }
